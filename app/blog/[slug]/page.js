@@ -37,25 +37,25 @@ const SlugRoute = async ({ params }) => {
 
 export default SlugRoute
 
-export const generateStaticParams = async () => {
-  let data = []
+// export const generateStaticParams = async () => {
+//   let data = []
 
-  try {
-    const res = isProduction
-      ? await fetch(`${process.env.SERVER}/api/blog/slug-list`)
-      : await fetch('http://localhost:3000/api/blog/slug-list') // fallback to localhost for development
+//   try {
+//     const res = isProduction
+//       ? await fetch(`${process.env.SERVER}/api/blog/slug-list`)
+//       : await fetch('http://localhost:3000/api/blog/slug-list') // fallback to localhost for development
 
-    if (res.ok) {
-      data = await res.json()
-    } else {
-      console.error('Error fetching slug list:', res.statusText)
-    }
-  } catch (error) {
-    console.error('Error during fetch:', error)
-  }
+//     if (res.ok) {
+//       data = await res.json()
+//     } else {
+//       console.error('Error fetching slug list:', res.statusText)
+//     }
+//   } catch (error) {
+//     console.error('Error during fetch:', error)
+//   }
 
-  console.log('Generated slugs:', data)
-  return data.map((slug) => ({
-    slug: slug,
-  }))
-}
+//   console.log('Generated slugs:', data)
+//   return data.map((slug) => ({
+//     slug: slug,
+//   }))
+// }
