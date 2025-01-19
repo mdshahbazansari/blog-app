@@ -24,9 +24,8 @@ export default SlugRoute
 export const generateStaticParams = async () => {
   const res = await fetch(`${process.env.SERVER}/api/blog/slug-list`)
   let data = []
-  if (res.ok)
-     data = await res.json()
+  if (res.ok) data = await res.json()
   return data.map((slug) => ({
-    slug: slug
+    slug: slug,
   }))
 }
